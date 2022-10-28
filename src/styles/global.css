@@ -252,11 +252,13 @@ figure {
 }
 
 a {
-  color: #0070f3;
+  color: #e30613;
   text-decoration: none;
 }
 a:hover {
-  color: #3291ff;
+  color: #ffdb00;
+  text-decoration: dashed;
+  text-decoration-color: #e30613;
 }
 
 .links {

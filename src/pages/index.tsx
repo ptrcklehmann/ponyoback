@@ -62,7 +62,7 @@ const Index = ({ posts = [], preview }) => {
       )}
       <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
         <h1>Bring back Popo</h1>
-        <img src={popoImageUrl} height={46} width={132} alt="Popo the dog" />
+        <img src={popoImageUrl} height={719} width={600} alt="Popo the dog" />
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
@@ -79,12 +79,6 @@ const Index = ({ posts = [], preview }) => {
                   </Link>
                 </span>
               </h3>
-              {post.Authors.length > 0 && (
-                <div className="authors">By: {post.Authors.join(' ')}</div>
-              )}
-              {post.Date && (
-                <div className="posted">Posted: {getDateStr(post.Date)}</div>
-              )}
               <p>
                 {(!post.preview || post.preview.length === 0) &&
                   'No preview available'}

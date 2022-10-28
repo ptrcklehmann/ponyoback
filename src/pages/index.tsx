@@ -82,7 +82,15 @@ const Index = ({ posts = [], preview }) => {
         <h1>Bring back Popo</h1>
         <img src={popoImageUrl} width={'40%'} alt="Popo the dog" />
         <div className={`${sharedStyles.layout} ${blogStyles.blogIndexBio}`}>
-          <Chrono items={timeLineItems} />
+          <Chrono
+            items={timeLineItems}
+            mode="VERTICAL_ALTERNATING"
+            cardPositionHorizontal="BOTTOM"
+            theme={{
+              primary: '#e30613',
+              secondary: '#ffdb00',
+            }}
+          />
         </div>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>

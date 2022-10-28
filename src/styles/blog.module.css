@@ -1,6 +1,10 @@
 .blogIndex {
   padding: 0 5%;
 }
+.blogIndexBio {
+  padding: 0 5%;
+  width: '50%';
+}
 
 .blogIndex h1 {
   margin-bottom: 50px;

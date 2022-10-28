@@ -4,12 +4,15 @@ import Header from '../components/header'
 import blogStyles from '../styles/blog.module.css'
 import sharedStyles from '../styles/shared.module.css'
 
-import { getBlogLink, getDateStr, postIsPublished } from '../lib/blog-helpers'
+import { getBlogLink, postIsPublished } from '../lib/blog-helpers'
 import { textBlock } from '../lib/notion/renderers'
 import getNotionUsers from '../lib/notion/getNotionUsers'
 import getBlogIndex from '../lib/notion/getBlogIndex'
+import { Chrono, TimelineItem } from 'react-chrono'
+import { time } from 'console'
 
 const popoImageUrl = 'https://findingponyo.vercel.app/popo.png'
+const popoBabyImageUrl = 'https://findingponyo.vercel.app/popo_baby.jpeg'
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
@@ -46,6 +49,21 @@ export async function getStaticProps({ preview }) {
 }
 
 const Index = ({ posts = [], preview }) => {
+  const timeLineItems: TimelineItem[] = [
+    {
+      title: '15.09.2015',
+      cardTitle: 'Geboren',
+      url: 'https://goo.gl/maps/HNieXu9d1awgUaCH7',
+      cardSubtitle: 'In der Dorfstraße 8, Doberlug-Kirchhain',
+      cardDetailedText: '1 von 8 Geschwistern',
+      media: {
+        type: 'IMAGE',
+        source: {
+          url: popoBabyImageUrl,
+        },
+      },
+    },
+  ]
   return (
     <>
       <Header titlePre="Bring back Popo" />
@@ -62,7 +80,10 @@ const Index = ({ posts = [], preview }) => {
       )}
       <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
         <h1>Bring back Popo</h1>
-        <img src={popoImageUrl} height={719} width={600} alt="Popo the dog" />
+        <img src={popoImageUrl} width={'40%'} alt="Popo the dog" />
+        <div className={`${sharedStyles.layout} ${blogStyles.blogIndexBio}`}>
+          <Chrono items={timeLineItems} />
+        </div>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
